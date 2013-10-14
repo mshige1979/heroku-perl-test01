@@ -16,6 +16,7 @@ get '/' => sub {
     my $title = 'Mojoliciousのテストサイト';
     my $description = 'm_shige1979がなんかいろいろやる目的のテストサイト'; 
     my $sub_title = '今回のやることはRSSを読み込んでリストを表示';   
+    my $github = "https://github.com/mshige1979/heroku-perl-test01";
  
     # 最初は配列をリファレンスで定義
     my $rss_list = [];
@@ -39,6 +40,7 @@ get '/' => sub {
     $self->stash('title', $title);
     $self->stash('description', $description);
     $self->stash('subTitle', $sub_title);
+    $self->stash('github', $github);
     $self->stash('rssList', $rss_list);
     
 
@@ -88,6 +90,7 @@ __DATA__
                 <div class="col-12">
                     <div>
                         <h4><%= $subTitle %></h4>
+                        <a target="_blank" href="<%= $github %>">Github</a>
                     </div>
                 </div>
             </div>
