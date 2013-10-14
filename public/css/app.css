@@ -1,0 +1,65 @@
+div.container-fluid .row-fluid {
+    padding: 10px;
+}
+
+a.navbar-brand{
+    color: #FFFFFF !important;
+}
+
+.footer {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.list {
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.list div.list_area {
+    list-style: none outside none;
+    float: left;
+    margin: 0 0 0 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+}
+.list div.list_area .bookmark_link {
+
+   display: block;
+    float: left;
+    height: 150px;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 20px;
+
+    float: left;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid #999;
+    position: relative;
+    left: -50%;
+}
+
+.list div.list_area .bookmark_link em{
+    background: #FFF0F0;
+    color: #FF0000;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+body{
+    background-color: #E3EECD;
+}
+
+a:nth-child(even) > .bookmark_link{
+    background-color: #8AEB7D;
+}
+
+.test{
+    color: red;
+}
