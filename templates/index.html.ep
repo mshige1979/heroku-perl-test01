@@ -1,0 +1,28 @@
+% layout 'default';
+
+            <div class="row-fluid">
+                <div class="col-12">
+                    <div>
+                        <div>
+                            デザインセンスが破滅的に変だけどとりあえず、形にだけしておく
+                        </div>
+                        <ul>
+                            <li><a href="/rsslist">RSSの一覧を表示</a></li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <div>
+                        <div>
+                            履歴
+                        </div>
+                        <ul>
+                            <li>はろーわーるどを配置</li>
+                            <li>RSSリストを追加</li>
+                            <li>テンプレート化してファイルを分割</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
