@@ -26,7 +26,7 @@ my $nt = Net::Twitter->new(
 app->secret($config->{secret});
 
 for my $envitem(keys %ENV){
-    print $envitem . "=" . $ENV{$envitem}  . "\n";
+    print "env-test-display---->" . $envitem . "=" . $ENV{$envitem}  . "\n";
 }
 #print eDumper(%ENV);
 
