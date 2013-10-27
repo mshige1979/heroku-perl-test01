@@ -18,8 +18,6 @@ my $config = plugin('Config', {file => 'app.conf'});
 ## Twitterのモジュール設定
 my $nt = Net::Twitter->new(
     traits => [qw/API::RESTv1_1/],
-#    consumer_key => "KiR5e3zkzldWA33hw017w",
-#    consumer_secret => "2KSArJgrd5eBf3vrWGKFegykUNUHdBmiNpEAj0wcBM",
     consumer_key => $config->{consumer_key},
     consumer_secret => $config->{consumer_secret},
 );
