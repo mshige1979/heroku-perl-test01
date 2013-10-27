@@ -8,6 +8,7 @@
                         </div>
                         <ul>
                             <li><a href="/rsslist">RSSの一覧を表示</a></li>
+                            <li><a href="/twitter/">Twitterでログインして一覧を表示する</a></li>
                         </ul>
                     </div>
                     <hr />
@@ -19,6 +20,7 @@
                             <li>はろーわーるどを配置</li>
                             <li>RSSリストを追加</li>
                             <li>テンプレート化してファイルを分割</li>
+                            <li>Twitterでログインして、ホームタイムラインを表示</>
                         </ul>
                     </div>
                 </div>

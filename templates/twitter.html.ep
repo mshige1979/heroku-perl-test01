@@ -1,0 +1,68 @@
+% layout 'default';
+
+            <div class="row-fluid">
+                <div class="col-12">
+                    <div>
+                        <div>
+% if ( $screen_name ) {
+                            <h3><a href="/">@<%= $screen_name %>のタイムライン</a></h3>
+                            <div>
+                                <a href="./logout" class="btn btn-default" >Twitterをログアウト</a></li>
+                            </div>
+% }else{ 
+                            <div>
+                                <a href="./login" class="btn btn-success">Twitterでログイン</a>
+                            </div>
+% }
+                        </div>
+                        <div>
+% if($tweets) {
+                            <hr />
+% for my $tweet ( @$tweets ) {
+                                <div style="margin-bottom:1em;padding-bottom:1em;border-bottom:1px dotted #ccc;">
+                                    <div style="float: left">
+% if($tweet->{retweete}->{profile_image_url}) {
+                                       <img src="<%= $tweet->{retweete}->{profile_image_url} %>" alt="" width="36" height="36" style=";margin-right:1em;"></img>
+% }else{
+                                       <img src="<%= $tweet->{profile_image_url} %>" alt="" width="36" height="36" style=";margin-right:1em;"></img>
+% }
+                                    </div>
+                                    <div style="float: left">
+% if($tweet->{retweete}->{name}) {
+                                        <%= $tweet->{retweete}->{name} %>
+% }else{
+                                        <%= $tweet->{name} %>
+% }
+
+% if($tweet->{retweete}->{screen_name}) {
+                                        <a href="http://twitter.com/<%= $tweet->{retweete}->{screen_name} %>" target="_blank">@<%= $tweet->{retweete}->{screen_name} %></a>
+% }else{
+                                        <a href="http://twitter.com/<%= $tweet->{screen_name} %>" target="_blank">@<%= $tweet->{screen_name} %></a>
+% }
+                                        <div>
+% if($tweet->{retweete}->{text}) {
+                                            <%= $tweet->{retweete}->{text} %>
+% }else{
+                                            <%= $tweet->{text} %>
+% }
+% if($tweet->{retweete}->{status}) {
+                                            <div><%= $tweet->{name} %>さんがリツィートしました</div>
+% }
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                    <div style="text-align: right;">
+                                        <%= $tweet->{created_at} %>
+                                    </div>
+
+                                </div>
+                                <div style="clear: both;"></div>
+% }
+% }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
