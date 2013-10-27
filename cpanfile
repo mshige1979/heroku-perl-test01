@@ -7,4 +7,6 @@ requires 'utf8';
 requires 'Encode';
 requires 'Net::Twitter';
 requires 'Data::Dumper::AutoEncode';
-
+requires 'Crypt::SSLeay';
+requires 'LWP::Protocol::https';
+requires 'IO::Socket';
