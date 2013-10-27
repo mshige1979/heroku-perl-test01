@@ -25,6 +25,11 @@ my $nt = Net::Twitter->new(
 # なんかよくわからんけどクッキーのセキュアにするとかなんとか
 app->secret($config->{secret});
 
+for my $envitem(keys %ENV){
+    print $envitem . "=" . $ENV{$envitem}  . "\n";
+}
+#print eDumper(%ENV);
+
 # TOPページ
 get '/' => sub {
     
