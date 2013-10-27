@@ -5,4 +5,6 @@ requires 'XML::FeedPP';
 requires 'URI';
 requires 'utf8';
 requires 'Encode';
+requires 'Net::Twitter';
+requires 'Data::Dumper::AutoEncode';
 
