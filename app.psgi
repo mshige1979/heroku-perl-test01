@@ -167,7 +167,7 @@ get '/twitter/login' => sub {
     
     # リクエスト取得
     my $url = $nt->get_authorization_url(
-        callback => 'http://dev1.example.com/twitter/callback'
+        callback => $self->req->url->base . '/twitter/callback'
     );
 
     # セッションデータへ保存
