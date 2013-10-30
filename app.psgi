@@ -24,6 +24,8 @@ my $nt = Net::Twitter->new(
     consumer_secret => $ENV{'TW_CONSUMER_SECRET'},
 );
 
+my $jsList = [];
+
 # なんかよくわからんけどクッキーのセキュアにするとかなんとか
 app->secret($ENV{'MOJO_COOKIE_SECRET'});
 
@@ -41,6 +43,7 @@ get '/' => sub {
     $self->stash('description', $config->{description});
     $self->stash('github', $config->{github});
     $self->stash('subTitle', $sub_title);
+    $self->stash('jsList', $jsList);
 
     # indexを割り当て
     $self->render('index');
@@ -79,6 +82,7 @@ get '/rsslist' => sub {
     $self->stash('github', $config->{github});
     $self->stash('subTitle', $sub_title);
     $self->stash('rssList', $rss_list); 
+    $self->stash('jsList', $jsList);
 
     # indexを割り当て
     $self->render('rsslist');
@@ -153,6 +157,7 @@ get '/twitter/' => sub {
     $self->stash('description', $config->{description});
     $self->stash('github', $config->{github});
     $self->stash('subTitle', $sub_title);
+    $self->stash('jsList', $jsList);
 
     $self->stash('screen_name', $screen_name);
     $self->stash('tweets', $tweets);
