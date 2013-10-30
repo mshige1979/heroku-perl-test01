@@ -18,17 +18,12 @@ my $config = plugin('Config', {file => 'app.conf'});
 ## Twitterのモジュール設定
 my $nt = Net::Twitter->new(
     traits => [qw/API::RESTv1_1/],
-    consumer_key => $config->{consumer_key},
-    consumer_secret => $config->{consumer_secret},
+    consumer_key => $ENV{'TW_CONSUMER_KEY'},
+    consumer_secret => $ENV{'TW_CONSUMER_SECRET'},
 );
 
 # なんかよくわからんけどクッキーのセキュアにするとかなんとか
-app->secret($config->{secret});
-
-for my $envitem(keys %ENV){
-    print "env-test-display---->" . $envitem . "=" . $ENV{$envitem}  . "\n";
-}
-#print eDumper(%ENV);
+app->secret($ENV{'MOJO_COOKIE_SECRET'});
 
 # TOPページ
 get '/' => sub {
