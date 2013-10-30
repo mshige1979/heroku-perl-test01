@@ -9,6 +9,7 @@
                         <ul>
                             <li><a href="/rsslist">RSSの一覧を表示</a></li>
                             <li><a href="/twitter/">Twitterでログインして一覧を表示する</a></li>
+                            <li><a href="/chat/">WebScoketで超簡易メッセージ処理</a></li>
                         </ul>
                     </div>
                     <hr />
@@ -22,6 +23,7 @@
                             <li>テンプレート化してファイルを分割</li>
                             <li>Twitterでログインして、ホームタイムラインを表示</li>
                             <li>Twitterキーを環境変数に設定して認証方法変更</li>
+                            <li>WebScokletでメッセージ処理</li>
                         </ul>
                     </div>
                 </div>

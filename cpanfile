@@ -10,3 +10,5 @@ requires 'Data::Dumper::AutoEncode';
 requires 'Crypt::SSLeay';
 requires 'LWP::Protocol::https';
 requires 'IO::Socket';
+requires 'DateTime';
+requires 'Mojo::JSON';

@@ -8,6 +8,8 @@ use URI;
 use utf8;
 use Encode;
 use Net::Twitter;
+use DateTime;
+use Mojo::JSON;
 
 # デバッグ用
 use Data::Dumper::AutoEncode;
@@ -221,6 +223,71 @@ get '/twitter/callback' => sub {
     # Twitterのページへリダイレクト
     $self->redirect_to('/twitter/');
 
+};
+
+# chatの画面
+get '/chat' => sub {
+    
+     # パラメータを取得
+    my $self = shift;
+
+    my $jslist = ['chat.js'];
+
+    # URL
+    my $url_base = $self->req->url->base;
+    $url_base =~ s/http/ws/g;
+    $self->stash('url_base', $url_base);
+
+    # 変数をセット
+    my $sub_title = 'WebScoketでチャットのテスト';
+
+    # テンプレート変数をセット
+    $self->stash('title', $config->{title});
+    $self->stash('description', $config->{description});
+    $self->stash('github', $config->{github});
+    $self->stash('subTitle', $sub_title);
+
+    $self->stash('jsList', $jslist);
+
+    # chatページを割り当て
+    $self->render('chat');
+};
+
+my $clients = {};
+
+# WebSocketの処理
+websocket '/echo' => sub {
+    my $self = shift;
+
+    my $id = sprintf "%s", $self->tx;
+    $clients->{$id} = $self->tx;
+
+#    $self->receive_message(  # もう使えない
+    $self->on(message => 
+        sub {
+            my ($self, $msg) = @_;
+
+            my $json = Mojo::JSON->new;
+            my $dt   = DateTime->now( time_zone => 'Asia/Tokyo');
+
+            for (keys %$clients) {
+#                $clients->{$_}->send_message( # これも？
+                $clients->{$_}->send(
+                    $json->encode({
+                        hms  => $dt->hms,
+                        text => $msg,
+                    })
+                );
+            }
+        }
+    );
+
+#    $self->finished( # 別名
+    $self->on(finish => 
+        sub {
+            delete $clients->{$id};
+        }
+    );
 };
 
 

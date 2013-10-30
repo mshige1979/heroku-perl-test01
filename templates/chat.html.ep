@@ -1,0 +1,15 @@
+% layout 'default';
+
+            <div class="row-fluid">
+                <div class="col-12">
+                    <div>
+                       <div id="url" style="display: none;"><%= $url_base %></div>
+                       <p><input type="text" id="msg" /></p>
+                       <textarea id="log" readonly></textarea>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
